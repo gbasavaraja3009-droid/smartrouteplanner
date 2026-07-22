@@ -19,21 +19,21 @@ export async function getAllTransportModes(
     {
       mode: "Car",
       distance: distanceKm.toFixed(1) + " km",
-      time: (distanceKm / 60).toFixed(1) + " hrs",
+      time: (distanceKm / 90).toFixed(1) + " hrs",
       cost: "₹" + Math.round(distanceKm * 8),
       comfort: "9/10",
     },
     {
       mode: "Bus",
       distance: distanceKm.toFixed(1) + " km",
-      time: (distanceKm / 40).toFixed(1) + " hrs",
+      time: (distanceKm / 70).toFixed(1) + " hrs",
       cost: "₹" + Math.round(distanceKm * 1.5),
       comfort: "7/10",
     },
     {
       mode: "Train",
       distance: distanceKm.toFixed(1) + " km",
-      time: (distanceKm / 80).toFixed(1) + " hrs",
+      time: (distanceKm / 110).toFixed(1) + " hrs",
       cost: "₹" + Math.round(distanceKm * 1),
       comfort: "9/10",
     },
@@ -41,7 +41,7 @@ export async function getAllTransportModes(
       mode: "Flight",
       distance: distanceKm.toFixed(1) + " km",
       time:
-        (distanceKm / 700 + 2).toFixed(1) + " hrs",
+        (distanceKm / 850 + 2).toFixed(1) + " hrs",
       cost: "₹" + Math.round(distanceKm * 6),
       comfort: "10/10",
     },
