@@ -225,6 +225,13 @@ function calculateAIScore(route: any) {
       );
   }
 }
+function formatTime(minutes: number) {
+  const hrs = Math.floor(minutes / 60);
+  const mins = Math.round(minutes % 60);
+
+  
+  return `${hrs} hr ${mins} min`;
+}
 const handleFindRoute = async () => {
   if (!source.trim() || !destination.trim()) {
     alert("Please enter both source and destination.");
@@ -446,11 +453,15 @@ setTotalCost(fuel + toll + parking);
           )
         )
       : 0;
-
+const carSpeed = 65;
+const bikeSpeed = 55;
+const busSpeed = 50;
+const trainSpeed = 70;
+const flightSpeed = 950;
    const allRoutes = [
   {
     name: "Car",
-    time: Math.round((km / 60) * 60),
+   time:Math.round ((km / carSpeed) * 60),
     distance: (routeDistance / 1000).toFixed(1),
     cost:
       Math.round((km / 15) * petrolPrice) +
@@ -463,7 +474,7 @@ setTotalCost(fuel + toll + parking);
 
   {
     name: "Bike",
-    time: Math.round((km / 45) * 60),
+   time:Math.round((km / bikeSpeed) * 60),
     distance: (routeDistance / 1000).toFixed(1),
     cost:
       Math.round((km / 25) * petrolPrice) +
@@ -475,7 +486,7 @@ setTotalCost(fuel + toll + parking);
 
   {
     name: "Bus",
-    time: Math.round((km / 50) * 60),
+    time:Math.round((km / busSpeed) * 60),
     distance: (routeDistance / 1000).toFixed(1),
     cost: Math.round(km * 2.2),
     comfort: 6,
@@ -485,7 +496,7 @@ setTotalCost(fuel + toll + parking);
 
   {
     name: "Train",
-    time: Math.round((km / 80) * 60),
+  time: Math.round((km / trainSpeed) * 60),
     distance: (routeDistance / 1000).toFixed(1),
     cost: Math.round(km * 1.5),
     comfort: 9,
@@ -495,7 +506,7 @@ setTotalCost(fuel + toll + parking);
 
   {
     name: "Flight",
-    time: Math.round((km / 700) * 60 + 120),
+    time: Math.round((km / flightSpeed) * 60 + 40),
     distance: (routeDistance / 1000).toFixed(1),
     cost: Math.round(km * 13),
     comfort: 10,
@@ -506,7 +517,7 @@ setTotalCost(fuel + toll + parking);
 
     const scoredRoutes = allRoutes.map((item) => ({
       ...item,
-    aiScore: calculateAIScore(item),
+    aiScore: Math.round(calculateAIScore(item)),
     }));
 
     setRoutes(scoredRoutes);
