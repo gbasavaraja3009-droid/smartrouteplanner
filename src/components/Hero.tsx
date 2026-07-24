@@ -508,7 +508,7 @@ const flightSpeed = 950;
     name: "Flight",
     time: Math.round((km / flightSpeed) * 60 + 40),
     distance: (routeDistance / 1000).toFixed(1),
-    cost: Math.round(km * 13),
+    cost: Math.round(km * 10),
     comfort: 10,
     traffic: 0,
     weather: 2,
